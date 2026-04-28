@@ -1,0 +1,59 @@
+/* ============================================================
+   nav.css — Fixed top navigation bar
+   ============================================================ */
+
+nav {
+  position:        fixed;
+  top:             0;
+  left:            0;
+  right:           0;
+  z-index:         100;
+  background:      rgba(247, 245, 242, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom:   1px solid var(--border);
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         1.1rem 3rem;
+}
+
+.logo {
+  font-family:     var(--serif);
+  font-size:       1.05rem;
+  font-weight:     700;
+  color:           var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display:     flex;
+  gap:         2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size:       0.7rem;
+  color:           var(--text-mid);
+  text-decoration: none;
+  letter-spacing:  0.12em;
+  text-transform:  uppercase;
+  transition:      color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+.nav-hire {
+  font-size:       0.7rem;
+  color:           var(--accent);
+  border:          1px solid var(--accent);
+  padding:         0.4rem 1rem;
+  border-radius:   3px;
+  text-decoration: none;
+  letter-spacing:  0.08em;
+  transition:      all 0.2s;
+}
+
+.nav-hire:hover {
+  background: var(--accent);
+  color:      white;
+}

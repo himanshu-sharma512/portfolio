@@ -1,0 +1,17 @@
+/* ============================================================
+   animations.css — Scroll-reveal and transition utilities
+   ============================================================ */
+
+/* ── REVEAL ON SCROLL ── */
+/* Initial hidden state — added in HTML via class="reveal" */
+.reveal {
+  opacity:    0;
+  transform:  translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+/* JS adds .show when element enters viewport */
+.reveal.show {
+  opacity:   1;
+  transform: none;
+}

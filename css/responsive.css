@@ -1,0 +1,46 @@
+/* ============================================================
+   responsive.css — Mobile / small-screen overrides
+   All breakpoints in one place for easy maintenance.
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  /* Nav */
+  nav { padding: 1rem 1.5rem; }
+
+  /* Layout */
+  .wrap { padding: 0 1.5rem; }
+
+  /* Hero */
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+
+  /* Experience */
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap:                   0.8rem;
+  }
+
+  /* Projects */
+  .proj-item {
+    grid-template-columns: 1fr;
+    gap:                   0.8rem;
+  }
+
+  /* Skills */
+  .skills-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap:                   3rem;
+  }
+
+  /* Footer */
+  footer {
+    padding:        1.5rem;
+    flex-direction: column;
+    gap:            0.4rem;
+    text-align:     center;
+  }
+}
