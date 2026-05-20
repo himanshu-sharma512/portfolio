@@ -1,12 +1,6 @@
-/* ============================================================
-   base.css — CSS custom properties, reset, typography base
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 
-/* ── TOKENS ── */
 :root {
-  /* Palette */
   --bg:           #f7f5f2;
   --surface:      #f0ede8;
   --border:       #e2ddd7;
@@ -16,23 +10,29 @@
   --accent:       #2c5f8a;
   --accent-light: #eaf0f6;
   --green:        #2d6a4f;
-
-  /* Typography */
   --serif: 'Libre Baskerville', Georgia, serif;
   --mono:  'IBM Plex Mono', monospace;
+  --dm-toggle-bg: var(--surface);
+  --dm-toggle-border: var(--border);
 }
 
-/* ── RESET ── */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+[data-theme="dark"] {
+  --bg:           #111110;
+  --surface:      #1c1c1a;
+  --border:       #2e2e2b;
+  --text:         #e8e4de;
+  --text-mid:     #8a8680;
+  --text-dim:     #55524e;
+  --accent:       #5b9fd4;
+  --accent-light: #0f1f2e;
+  --green:        #4ea878;
+  --dm-toggle-bg: #1c1c1a;
+  --dm-toggle-border: #2e2e2b;
 }
 
-/* ── BASE ── */
-html {
-  scroll-behavior: smooth;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   background:  var(--bg);
@@ -40,90 +40,47 @@ body {
   font-family: var(--mono);
   font-size:   15px;
   line-height: 1.6;
+  transition:  background 0.3s ease, color 0.3s ease;
 }
 
-/* ── SHARED LAYOUT ── */
-.wrap {
-  max-width: 960px;
-  margin:    0 auto;
-  padding:   0 3rem;
-}
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 3rem; }
 
-section {
-  padding: 7rem 0;
-}
+section { padding: 7rem 0; }
 
-section + section {
-  border-top: 1px solid var(--border);
-}
+section + section { border-top: 1px solid var(--border); }
 
-/* ── SHARED SECTION HEADER ── */
-.section-header {
-  display:       flex;
-  align-items:   baseline;
-  gap:           1.5rem;
-  margin-bottom: 3.5rem;
-}
+.section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
 
-.s-num {
-  font-size:      0.6rem;
-  color:          var(--text-dim);
-  letter-spacing: 0.25em;
-}
+.s-num { font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.25em; }
 
-.s-title {
-  font-family: var(--serif);
-  font-size:   1.9rem;
-  font-weight: 700;
-  color:       var(--text);
-}
+.s-title { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; color: var(--text); }
 
-/* ── SHARED TAGS ── */
-.tag-row {
-  display:    flex;
-  flex-wrap:  wrap;
-  gap:        0.4rem;
-  margin-top: 1.1rem;
-}
+.tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
 
 .tag {
-  font-size:    0.6rem;
-  padding:      3px 8px;
-  background:   var(--surface);
-  border:       1px solid var(--border);
-  border-radius: 3px;
-  color:        var(--text-mid);
+  font-size: 0.6rem; padding: 3px 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 3px; color: var(--text-mid);
 }
 
-/* ── SHARED BUTTONS ── */
 .btn-fill {
-  background:     var(--text);
-  color:          var(--bg);
-  padding:        0.65rem 1.5rem;
-  font-family:    var(--mono);
-  font-size:      0.68rem;
-  letter-spacing: 0.1em;
-  border:         none;
-  border-radius:  3px;
-  cursor:         pointer;
-  text-decoration: none;
-  transition:     opacity 0.2s;
+  background: var(--text); color: var(--bg);
+  padding: 0.65rem 1.5rem; font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.1em; border: none; border-radius: 3px;
+  cursor: pointer; text-decoration: none; transition: opacity 0.2s;
+  display: inline-block;
 }
-
 .btn-fill:hover { opacity: 0.8; }
 
 .btn-line {
-  background:     transparent;
-  color:          var(--text);
-  padding:        0.65rem 1.5rem;
-  font-family:    var(--mono);
-  font-size:      0.68rem;
-  letter-spacing: 0.1em;
-  border:         1px solid var(--border);
-  border-radius:  3px;
-  cursor:         pointer;
-  text-decoration: none;
-  transition:     border-color 0.2s;
+  background: transparent; color: var(--text);
+  padding: 0.65rem 1.5rem; font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.1em; border: 1px solid var(--border); border-radius: 3px;
+  cursor: pointer; text-decoration: none; transition: border-color 0.2s;
+  display: inline-block;
 }
-
 .btn-line:hover { border-color: var(--text); }
+
+/* Active nav link */
+.nav-links a.active,
+.nav-mobile-menu a.active { color: var(--accent); }

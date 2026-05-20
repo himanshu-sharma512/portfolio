@@ -1,69 +1,24 @@
-/* ============================================================
-   projects.css — Projects showcase section
-   ============================================================ */
-
 .proj-list {
-  display:        flex;
-  flex-direction: column;
-  gap:            1px;
-  background:     var(--border);
-  border:         1px solid var(--border);
-  border-radius:  8px;
-  overflow:       hidden;
+  display: flex; flex-direction: column; gap: 1px;
+  background: var(--border); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
 }
 
 .proj-item {
-  background:            var(--bg);
-  padding:               2rem 2.2rem;
-  display:               grid;
-  grid-template-columns: 260px 1fr;
-  gap:                   3rem;
-  align-items:           start;
-  transition:            background 0.2s;
-  cursor:                default;
+  background: var(--bg); padding: 2rem 2.2rem;
+  display: grid; grid-template-columns: 260px 1fr;
+  gap: 3rem; align-items: start;
+  transition: background 0.2s; cursor: default;
 }
-
 .proj-item:hover { background: var(--surface); }
 
-/* ── LEFT ── */
-.proj-num {
-  font-size:      0.58rem;
-  color:          var(--text-dim);
-  letter-spacing: 0.2em;
-  margin-bottom:  0.5rem;
-}
+.proj-num { font-size: 0.58rem; color: var(--text-dim); letter-spacing: 0.2em; margin-bottom: 0.5rem; }
+.proj-name { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; margin-bottom: 0.3rem; }
+.proj-type { font-size: 0.65rem; color: var(--accent); margin-bottom: 1rem; }
 
-.proj-name {
-  font-family:   var(--serif);
-  font-size:     1.35rem;
-  font-weight:   700;
-  margin-bottom: 0.3rem;
-}
-
-.proj-type {
-  font-size:     0.65rem;
-  color:         var(--accent);
-  margin-bottom: 1rem;
-}
-
-.proj-metrics {
-  display:        flex;
-  flex-direction: column;
-  gap:            0.3rem;
-}
-
-.metric {
-  font-size: 0.62rem;
-  color:     var(--green);
-}
-
-.metric::before     { content: '↑ '; }
+.proj-metrics { display: flex; flex-direction: column; gap: 0.3rem; }
+.metric { font-size: 0.62rem; color: var(--green); transition: transform 0.2s ease; }
+.metric::before { content: '↑ '; }
 .metric.down::before { content: '↓ '; }
 
-/* ── RIGHT ── */
-.proj-desc {
-  font-size:     0.76rem;
-  color:         var(--text-mid);
-  line-height:   1.75;
-  margin-bottom: 1rem;
-}
+.proj-desc { font-size: 0.76rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }

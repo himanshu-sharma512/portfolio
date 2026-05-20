@@ -1,43 +1,15 @@
-/* ============================================================
-   skills.css — Skills grid section
-   ============================================================ */
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 5rem; }
 
-.skills-grid {
-  display:               grid;
-  grid-template-columns: 1fr 1fr;
-  gap:                   0 5rem;
-}
+.skill-group { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
 
-.skill-group {
-  padding:       1.5rem 0;
-  border-bottom: 1px solid var(--border);
-}
+.sg-cat { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.7rem; }
 
-.sg-cat {
-  font-size:      0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color:          var(--text-dim);
-  margin-bottom:  0.7rem;
-}
-
-.sg-items {
-  display:   flex;
-  flex-wrap: wrap;
-  gap:       0.4rem;
-}
+.sg-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
 .sg-item {
-  font-size:     0.68rem;
-  color:         var(--text-mid);
-  padding:       4px 10px;
-  background:    var(--surface);
-  border:        1px solid var(--border);
-  border-radius: 3px;
-  transition:    color 0.2s, border-color 0.2s;
+  font-size: 0.68rem; color: var(--text-mid); padding: 4px 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 3px; transition: color 0.2s, border-color 0.2s, transform 0.18s ease;
+  cursor: default;
 }
-
-.sg-item:hover {
-  color:        var(--text);
-  border-color: var(--text-mid);
-}
+.sg-item:hover { color: var(--text); border-color: var(--text-mid); transform: translateY(-1px); }

@@ -1,46 +1,74 @@
 /* ============================================================
    responsive.css — Mobile / small-screen overrides
-   All breakpoints in one place for easy maintenance.
    ============================================================ */
 
 @media (max-width: 800px) {
 
-  /* Nav */
-  nav { padding: 1rem 1.5rem; }
-
   /* Layout */
-  .wrap { padding: 0 1.5rem; }
+  .wrap { padding: 0 1.25rem; }
+
+  section { padding: 5rem 0; }
 
   /* Hero */
-  .hero-grid { grid-template-columns: 1fr; }
+  #hero { padding-top: 4.5rem; min-height: auto; padding-bottom: 4rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-card { display: none; }
+  .hero-name { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .hero-role { font-size: 0.79rem; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions a { text-align: center; }
+  .hero-scroll-hint { display: none; }
 
   /* Experience */
   .exp-item {
     grid-template-columns: 1fr;
-    gap:                   0.8rem;
+    gap:                   0.6rem;
+  }
+  .exp-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
   }
 
   /* Projects */
   .proj-item {
     grid-template-columns: 1fr;
-    gap:                   0.8rem;
+    gap:                   1rem;
   }
 
   /* Skills */
-  .skills-grid { grid-template-columns: 1fr; }
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 
   /* Contact */
   .contact-grid {
     grid-template-columns: 1fr;
-    gap:                   3rem;
+    gap:                   2.5rem;
   }
+  .contact-left h2 { font-size: 1.7rem; }
 
   /* Footer */
   footer {
-    padding:        1.5rem;
+    padding:        1.2rem 1.25rem;
     flex-direction: column;
-    gap:            0.4rem;
+    gap:            0.3rem;
     text-align:     center;
   }
+
+  /* Section header */
+  .s-title { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-name { font-size: clamp(2rem, 10vw, 2.5rem); }
+  nav { padding: 0.85rem 1.25rem; }
+}
+
+@media (min-width: 801px) {
+  .logo-short { display: none; }
+  .logo-full  { display: inline; }
+  .nav-hamburger { display: none !important; }
+  .nav-mobile-menu { display: none !important; }
 }

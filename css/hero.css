@@ -3,11 +3,12 @@
    ============================================================ */
 
 #hero {
-  min-height:   100vh;
-  display:      flex;
-  align-items:  center;
-  padding-top:  5rem;
+  min-height:    100vh;
+  display:       flex;
+  align-items:   center;
+  padding-top:   5rem;
   border-bottom: 1px solid var(--border);
+  overflow:      hidden;
 }
 
 .hero-grid {
@@ -20,11 +21,23 @@
 
 /* ── LEFT ── */
 .hero-tag {
-  font-size:      0.65rem;
-  letter-spacing: 0.25em;
+  font-size:      0.62rem;
+  letter-spacing: 0.28em;
   color:          var(--text-dim);
   text-transform: uppercase;
-  margin-bottom:  1.6rem;
+  margin-bottom:  1.4rem;
+  display:        flex;
+  align-items:    center;
+  gap:            0.6rem;
+}
+
+.hero-tag::before {
+  content:    '';
+  display:    inline-block;
+  width:      20px;
+  height:     1px;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .hero-name {
@@ -41,19 +54,85 @@
   color:      var(--accent);
 }
 
+/* ── TAGLINE / ROLE ── */
 .hero-role {
   font-size:     0.82rem;
   color:         var(--text-mid);
   margin-bottom: 2rem;
-  line-height:   1.7;
+  line-height:   1.8;
   max-width:     440px;
 }
 
 .hero-role span { color: var(--text); }
 
+/* ── ROTATING ROLE WORDS ── */
+.hero-rotating-wrapper {
+  display:      inline-block;
+  overflow:     hidden;
+  height:       1.25em;
+  vertical-align: bottom;
+  position:     relative;
+}
+
+.hero-rotating-word {
+  display:    block;
+  color:      var(--accent);
+  font-style: italic;
+  animation:  wordCycle 6s infinite;
+}
+
+@keyframes wordCycle {
+  0%   { transform: translateY(0);    opacity: 1; }
+  30%  { transform: translateY(0);    opacity: 1; }
+  40%  { transform: translateY(-110%); opacity: 0; }
+  41%  { transform: translateY(110%);  opacity: 0; }
+  50%  { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── HERO DESCRIPTOR LINE ── */
+.hero-descriptor {
+  display:       flex;
+  flex-wrap:     wrap;
+  align-items:   center;
+  gap:           0.6rem;
+  margin-bottom: 1rem;
+  font-size:     0.8rem;
+  color:         var(--text-mid);
+}
+
+.hero-descriptor-sep {
+  color:    var(--border);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.hero-descriptor strong {
+  color:       var(--text);
+  font-weight: 500;
+}
+
+.hero-pill {
+  font-size:    0.6rem;
+  padding:      3px 9px;
+  border:       1px solid var(--border);
+  border-radius: 20px;
+  color:        var(--text-dim);
+  letter-spacing: 0.08em;
+  background:   var(--surface);
+  transition:   all 0.2s;
+}
+
+.hero-pill:hover {
+  border-color: var(--accent);
+  color:        var(--accent);
+}
+
 .hero-actions {
-  display: flex;
-  gap:     0.8rem;
+  display:     flex;
+  gap:         0.8rem;
+  flex-wrap:   wrap;
+  margin-top:  2rem;
 }
 
 /* ── RIGHT CARD ── */
@@ -62,6 +141,16 @@
   border:        1px solid var(--border);
   border-radius: 8px;
   padding:       1.8rem;
+  transition:    box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hero-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  transform:  translateY(-2px);
+}
+
+[data-theme="dark"] .hero-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
 .hc-label {
@@ -84,9 +173,13 @@
 }
 
 .hc-stat {
-  background: var(--bg);
-  padding:    1rem 0.8rem;
+  background:  var(--bg);
+  padding:     1rem 0.8rem;
+  transition:  background 0.2s;
+  cursor:      default;
 }
+
+.hc-stat:hover { background: var(--surface); }
 
 .hc-num {
   font-family: var(--serif);
@@ -118,4 +211,53 @@
   border-radius: 50%;
   background:    var(--green);
   flex-shrink:   0;
+}
+
+/* ── SCROLL HINT ── */
+.hero-scroll-hint {
+  position:   absolute;
+  bottom:     2rem;
+  left:       50%;
+  transform:  translateX(-50%);
+  display:    flex;
+  flex-direction: column;
+  align-items: center;
+  gap:         0.4rem;
+  opacity:    0;
+  animation:  scrollHintFade 0.6s ease 1.4s forwards;
+}
+
+@keyframes scrollHintFade {
+  to { opacity: 0.45; }
+}
+
+.hero-scroll-hint span {
+  font-size:      0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--text-dim);
+}
+
+.scroll-arrow {
+  width:     1px;
+  height:    28px;
+  background: var(--text-dim);
+  position:  relative;
+  overflow:  hidden;
+}
+
+.scroll-arrow::after {
+  content:    '';
+  position:   absolute;
+  top:        -28px;
+  left:       0;
+  width:      1px;
+  height:     28px;
+  background: var(--accent);
+  animation:  scrollLine 1.5s ease-in-out 1.4s infinite;
+}
+
+@keyframes scrollLine {
+  0%   { top: -28px; }
+  100% { top:  28px; }
 }

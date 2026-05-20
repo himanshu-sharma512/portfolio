@@ -3,27 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Himanshu Sharma — Software Engineer</title>
+  <!-- <link rel="icon" href="./assets/profile_img.jpeg" type="image/x-icon"> -->
+  <title>Himanshu Sharma — Portfolio</title>
   <meta name="description" content="SDE specialising in AI systems, LLM voice agents, RAG pipelines, and full-stack engineering. Based in India.">
 
-  <!--
-    ============================================================
-    Stylesheets — loaded in dependency order:
-      1. base.css       — tokens, reset, shared utilities
-      2. animations.css — scroll-reveal
-      3. nav.css
-      4. hero.css
-      5. experience.css
-      6. projects.css
-      7. skills.css
-      8. contact.css    — contact section + footer
-      9. responsive.css — mobile overrides (always last)
-    ============================================================
-  -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/hero.css">ink
   <link rel="stylesheet" href="css/experience.css">
   <link rel="stylesheet" href="css/projects.css">
   <link rel="stylesheet" href="css/skills.css">
@@ -32,48 +19,85 @@
 </head>
 <body>
 
-  <!--
-    ============================================================
-    Page sections — each lives in its own file under sections/.
-    To add or remove a section, comment out the include below
-    and delete (or archive) the corresponding file.
-    ============================================================
-  -->
-
   <!-- Navigation -->
-  <!-- #include sections/nav.html -->
   <nav>
-    <a href="#" class="logo">Himanshu Sharma</a>
+    <a href="#" class="logo">
+      <span class="logo-full">Himanshu Sharma</span>
+      
+    </a>
+
     <div class="nav-links">
       <a href="#experience">Work</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
+      <a href="#education">Education</a>
     </div>
-    <a href="mailto:himanshu.dev5121@gmail.com" class="nav-hire">Hire Me</a>
+
+    <!-- Desktop actions -->
+    <div class="nav-actions">
+      <button class="dm-toggle" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></svg>
+      </button>
+      <a href="./assets/himanshu_sharma_se.pdf" target="_blank" rel="noopener" class="nav-hire">View Resume</a>
+      <a href="./assets/himanshu_sharma_se.pdf" download class="nav-hire">Download</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
+  <!-- Mobile dropdown menu -->
+  <div class="nav-mobile-menu" inert>
+    <a href="#experience">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="#education">Education</a>
+    <div class="mobile-actions">
+      <a href="./assets/himanshu_sharma_se.pdf" target="_blank" rel="noopener" class="nav-hire">View Resume</a>
+      <a href="./assets/himanshu_sharma_se.pdf" download class="nav-hire">Download</a>
+      <button class="dm-toggle" aria-label="Toggle dark mode" style="flex-shrink:0;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"></svg>
+      </button>
+    </div>
+  </div>
+
   <!-- Hero -->
-  <!-- #include sections/hero.html -->
   <section id="hero">
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-left">
-          <div class="hero-tag">Software Engineer · AI Systems · Full Stack</div>
+          <div class="hero-tag">Software Engineer · AI · Full Stack</div>
+
           <h1 class="hero-name">
             Building things<br>
             that <em>work.</em>
           </h1>
+
+          <div class="hero-descriptor">
+            <strong>SDE at Tech Exponent</strong>
+            <span class="hero-descriptor-sep">·</span>
+            <span>Specialising in</span>
+            <span class="hero-rotating-word" style="color:var(--accent);font-style:italic;transition:opacity 0.25s ease,transform 0.25s ease;">AI Systems</span>
+          </div>
+
           <p class="hero-role">
-            SDE at <span>Tech Exponent</span> — I build AI-powered products,
-            LLM voice agents, RAG pipelines, and full-stack systems.
-            Based in India, open to opportunities.
+            I build AI-powered products — LLM voice agents, RAG pipelines,
+            and full-stack systems that scale.
+            Based in India, open to new opportunities.
           </p>
+
           <div class="hero-actions">
             <a href="#projects" class="btn-fill">See My Work</a>
             <a href="#contact"  class="btn-line">Get in Touch</a>
           </div>
         </div>
+
         <div class="hero-right">
           <div class="hero-card">
             <div class="hc-label">At a glance</div>
@@ -88,10 +112,15 @@
         </div>
       </div>
     </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-arrow"></div>
+      <span>Scroll</span>
+    </div>
   </section>
 
   <!-- Experience -->
-  <!-- #include sections/experience.html -->
   <section id="experience">
     <div class="wrap">
       <div class="section-header reveal">
@@ -106,7 +135,7 @@
             <span class="exp-badge badge-now">Current</span>
           </div>
           <div class="exp-right">
-            <div class="exp-role">Software Development Engineer I</div>
+            <div class="exp-role">Software Engineer</div>
             <div class="exp-company">Tech Exponent Systems Pvt. Ltd.</div>
             <ul class="exp-points">
               <li>Engineered a Labelling Management System for ML training data — annotation workflows and structured dataset pipelines</li>
@@ -126,7 +155,7 @@
             <span class="exp-badge badge-prev">Internship</span>
           </div>
           <div class="exp-right">
-            <div class="exp-role">Software Development Engineer Intern</div>
+            <div class="exp-role">Software Engineer Intern</div>
             <div class="exp-company">Tech Exponent Systems Pvt. Ltd.</div>
             <ul class="exp-points">
               <li>Built and iterated on core annotation tools and ML dataset collection systems from the ground up</li>
@@ -145,7 +174,6 @@
   </section>
 
   <!-- Projects -->
-  <!-- #include sections/projects.html -->
   <section id="projects">
     <div class="wrap">
       <div class="section-header reveal">
@@ -217,7 +245,6 @@
   </section>
 
   <!-- Skills -->
-  <!-- #include sections/skills.html -->
   <section id="skills">
     <div class="wrap">
       <div class="section-header reveal">
@@ -253,8 +280,61 @@
     </div>
   </section>
 
+  <!-- Education & Certifications -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <span class="s-num">04</span>
+      <h2 class="s-title">Education &amp; Certifications</h2>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">2020 – 2024</div>
+          <span class="exp-badge badge-prev">Degree</span>
+        </div>
+        <div class="exp-right">
+          <div class="exp-role">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="exp-company">Global Group of Institutes, Amritsar</div>
+          <ul class="exp-points">
+            <li>CGPA: 8.0 / 10</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Computer Science</span>
+            <span class="tag">Engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-left">
+          <div class="exp-period">Certifications</div>
+          <span class="exp-badge badge-now">Certified</span>
+        </div>
+        <div class="exp-right">
+          <div class="exp-role">Professional Certifications</div>
+          <div class="exp-company">Industry Training</div>
+          <ul class="exp-points">
+            <li><strong>MERN Stack Development</strong> — 100xDevs</li>
+            <li><strong>Java Standard Edition</strong> — Solitaire Infosys</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">MongoDB</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Java SE</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <!-- Contact -->
-  <!-- #include sections/contact.html -->
   <section id="contact">
     <div class="wrap">
       <div class="contact-grid">
@@ -271,46 +351,28 @@
               <div class="clink-left"><div><span class="clink-label">Phone</span><span class="clink-val">+91 8847 484 544</span></div></div>
               <span class="clink-arr">→</span>
             </a>
-            <a href="https://linkedin.com/in/himanshu-sharma" target="_blank" rel="noopener" class="clink">
-              <div class="clink-left"><div><span class="clink-label">LinkedIn</span><span class="clink-val">linkedin.com/in/himanshu-sharma</span></div></div>
+            <a href="https://www.linkedin.com/in/-himanshu--sharma----" target="_blank" rel="noopener" class="clink">
+              <div class="clink-left"><div><span class="clink-label">LinkedIn</span><span class="clink-val">linkedin.com/in/-himanshu--sharma----</span></div></div>
               <span class="clink-arr">→</span>
             </a>
-            <a href="https://github.com/himanshu-dev5121" target="_blank" rel="noopener" class="clink">
-              <div class="clink-left"><div><span class="clink-label">GitHub</span><span class="clink-val">github.com/himanshu-dev5121</span></div></div>
+            <a href="https://github.com/himanshu-sharma512" target="_blank" rel="noopener" class="clink">
+              <div class="clink-left"><div><span class="clink-label">GitHub</span><span class="clink-val">github.com/himanshu-sharma512</span></div></div>
               <span class="clink-arr">→</span>
             </a>
           </div>
         </div>
 
-        <div class="contact-right reveal">
-          <div class="edu-block">
-            <div class="edu-tag">Education</div>
-            <div class="edu-deg">B.Tech — Computer Science &amp; Engineering</div>
-            <div class="edu-inst">Global Group of Institutes, Amritsar</div>
-            <div class="edu-gpa">CGPA: 8.0 / 10</div>
-          </div>
-          <div class="certs">
-            <div class="cert"><span class="cert-name">MERN Stack Development</span><span class="cert-org">100xDevs</span></div>
-            <div class="cert"><span class="cert-name">Java Standard Edition</span><span class="cert-org">Solitaire Infosys</span></div>
-          </div>
-        </div>
+        
 
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <span class="footer-l">© 2025 Himanshu Sharma</span>
-    <span class="footer-r">Panipat, Haryana · India</span>
+    <span class="footer-l">© 2026 Himanshu Sharma</span>
+    <span class="footer-r">Amritsar, Punjab · India</span>
   </footer>
 
-  <!--
-    ============================================================
-    Scripts — deferred so they run after DOM is parsed.
-    Add new modules here as <script defer src="js/..."></script>
-    ============================================================
-  -->
   <script defer src="js/scroll-reveal.js"></script>
 
 </body>

@@ -1,164 +1,37 @@
-/* ============================================================
-   contact.css — Contact section & footer
-   ============================================================ */
-
-/* ── SECTION ── */
 #contact { padding-bottom: 4rem; }
 
-.contact-grid {
-  display:               grid;
-  grid-template-columns: 1fr 1fr;
-  gap:                   5rem;
-  align-items:           start;
-}
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 
-/* ── LEFT ── */
-.contact-left h2 {
-  font-family:   var(--serif);
-  font-size:     2.2rem;
-  font-weight:   700;
-  line-height:   1.2;
-  margin-bottom: 1.2rem;
-}
+.contact-left h2 { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.2rem; }
+.contact-left h2 em { font-style: italic; color: var(--accent); }
+.contact-left p { font-size: 0.75rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem; }
 
-.contact-left h2 em {
-  font-style: italic;
-  color:       var(--accent);
-}
-
-.contact-left p {
-  font-size:     0.75rem;
-  color:         var(--text-mid);
-  line-height:   1.8;
-  margin-bottom: 2rem;
-}
-
-.contact-links {
-  display:        flex;
-  flex-direction: column;
-  gap:            0.6rem;
-}
+.contact-links { display: flex; flex-direction: column; gap: 0.6rem; }
 
 .clink {
-  display:         flex;
-  align-items:     center;
-  justify-content: space-between;
-  padding:         0.9rem 1.1rem;
-  background:      var(--surface);
-  border:          1px solid var(--border);
-  border-radius:   5px;
-  text-decoration: none;
-  color:           var(--text);
-  transition:      border-color 0.2s;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 1.1rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 5px; text-decoration: none; color: var(--text);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
+.clink:hover { border-color: var(--text-mid); transform: translateX(3px); }
 
-.clink:hover { border-color: var(--text-mid); }
+.clink-left { display: flex; align-items: center; gap: 0.8rem; }
+.clink-label { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 0.15rem; }
+.clink-val { font-size: 0.7rem; color: var(--text); }
+.clink-arr { font-size: 0.8rem; color: var(--text-dim); transition: transform 0.2s, color 0.2s; }
+.clink:hover .clink-arr { color: var(--accent); transform: translateX(3px); }
 
-.clink-left {
-  display:     flex;
-  align-items: center;
-  gap:         0.8rem;
-}
+.edu-block { padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 1.2rem; }
+.edu-tag { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.6rem; }
+.edu-deg { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+.edu-inst { font-size: 0.68rem; color: var(--text-mid); margin-bottom: 0.8rem; }
+.edu-gpa { font-size: 0.68rem; color: var(--accent); font-weight: 500; }
 
-.clink-label {
-  font-size:      0.58rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color:          var(--text-dim);
-  display:        block;
-  margin-bottom:  0.15rem;
-}
+.certs { display: flex; flex-direction: column; gap: 0.5rem; }
+.cert { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; }
+.cert-name { font-size: 0.68rem; color: var(--text); }
+.cert-org { font-size: 0.6rem; color: var(--text-dim); }
 
-.clink-val {
-  font-size: 0.7rem;
-  color:     var(--text);
-}
-
-.clink-arr {
-  font-size:  0.8rem;
-  color:      var(--text-dim);
-  transition: transform 0.2s, color 0.2s;
-}
-
-.clink:hover .clink-arr {
-  color:     var(--accent);
-  transform: translateX(3px);
-}
-
-/* ── RIGHT ── */
-.edu-block {
-  padding:       1.5rem;
-  background:    var(--surface);
-  border:        1px solid var(--border);
-  border-radius: 6px;
-  margin-bottom: 1.2rem;
-}
-
-.edu-tag {
-  font-size:      0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color:          var(--text-dim);
-  margin-bottom:  0.6rem;
-}
-
-.edu-deg {
-  font-family:   var(--serif);
-  font-size:     1rem;
-  font-weight:   700;
-  margin-bottom: 0.2rem;
-}
-
-.edu-inst {
-  font-size:     0.68rem;
-  color:         var(--text-mid);
-  margin-bottom: 0.8rem;
-}
-
-.edu-gpa {
-  font-size:   0.68rem;
-  color:       var(--accent);
-  font-weight: 500;
-}
-
-.certs {
-  display:        flex;
-  flex-direction: column;
-  gap:            0.5rem;
-}
-
-.cert {
-  display:         flex;
-  justify-content: space-between;
-  align-items:     center;
-  padding:         0.7rem 0.9rem;
-  background:      var(--surface);
-  border:          1px solid var(--border);
-  border-radius:   5px;
-}
-
-.cert-name {
-  font-size: 0.68rem;
-  color:     var(--text);
-}
-
-.cert-org {
-  font-size: 0.6rem;
-  color:     var(--text-dim);
-}
-
-/* ── FOOTER ── */
-footer {
-  border-top:      1px solid var(--border);
-  padding:         1.8rem 3rem;
-  display:         flex;
-  justify-content: space-between;
-  align-items:     center;
-  max-width:       100%;
-}
-
-.footer-l,
-.footer-r {
-  font-size: 0.62rem;
-  color:     var(--text-dim);
-}
+footer { border-top: 1px solid var(--border); padding: 1.8rem 3rem; display: flex; justify-content: space-between; align-items: center; max-width: 100%; }
+.footer-l, .footer-r { font-size: 0.62rem; color: var(--text-dim); }

@@ -3,15 +3,165 @@
    ============================================================ */
 
 /* ── REVEAL ON SCROLL ── */
-/* Initial hidden state — added in HTML via class="reveal" */
 .reveal {
   opacity:    0;
-  transform:  translateY(16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform:  translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* JS adds .show when element enters viewport */
 .reveal.show {
   opacity:   1;
   transform: none;
+}
+
+/* ── STAGGERED CHILDREN ── */
+.reveal-stagger > * {
+  opacity:    0;
+  transform:  translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-stagger.show > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
+.reveal-stagger.show > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.08s; }
+.reveal-stagger.show > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.16s; }
+.reveal-stagger.show > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.24s; }
+.reveal-stagger.show > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.32s; }
+.reveal-stagger.show > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.40s; }
+
+/* ── FADE IN (no translate) ── */
+.reveal-fade {
+  opacity:    0;
+  transition: opacity 0.6s ease;
+}
+.reveal-fade.show { opacity: 1; }
+
+/* ── SLIDE FROM LEFT ── */
+.reveal-left {
+  opacity:    0;
+  transform:  translateX(-20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.show { opacity:1; transform:none; }
+
+/* ── HERO ENTRANCE ── */
+.hero-tag,
+.hero-name,
+.hero-role,
+.hero-actions,
+.hero-card {
+  opacity:   0;
+  transform: translateY(18px);
+  animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-tag     { animation-delay: 0.05s; }
+.hero-name    { animation-delay: 0.18s; }
+.hero-role    { animation-delay: 0.30s; }
+.hero-actions { animation-delay: 0.42s; }
+.hero-card    { animation-delay: 0.50s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* ── COUNTER POP (for stats) ── */
+@keyframes popIn {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.hc-stat {
+  animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hc-stat:nth-child(1) { animation-delay: 0.55s; }
+.hc-stat:nth-child(2) { animation-delay: 0.63s; }
+.hc-stat:nth-child(3) { animation-delay: 0.71s; }
+.hc-stat:nth-child(4) { animation-delay: 0.79s; }
+
+/* ── GREEN DOT PULSE ── */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(45, 106, 79, 0); }
+}
+
+.hc-dot {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* ── SMOOTH UNDERLINE (nav, links) ── */
+@keyframes underlineGrow {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ── TAG HOVER LIFT ── */
+.tag, .sg-item {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.tag:hover, .sg-item:hover {
+  transform: translateY(-1px);
+}
+
+/* ── BUTTON PRESS ── */
+.btn-fill, .btn-line, .nav-hire {
+  transition: all 0.2s ease;
+}
+
+.btn-fill:active, .btn-line:active {
+  transform: scale(0.97);
+}
+
+/* ── CURSOR TYPEWRITER (hero tagline) ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.typewriter-cursor {
+  display:          inline-block;
+  width:            2px;
+  height:           1em;
+  background:       var(--accent);
+  margin-left:      3px;
+  vertical-align:   text-bottom;
+  animation:        blink 1s step-end infinite;
+}
+
+/* ── SECTION NUMBER SLIDE IN ── */
+.s-num {
+  display:    inline-block;
+  transition: color 0.3s ease;
+}
+
+/* ── METRIC ROW ANIMATION ── */
+.metric {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.proj-item:hover .metric {
+  transform: translateX(3px);
+}
+
+/* ── EXP ITEM HOVER ── */
+.exp-item {
+  transition: background 0.2s ease;
+  border-radius: 4px;
+}
+
+/* ── CONTACT LINK HOVER ── */
+.clink {
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.clink:hover {
+  transform: translateX(3px);
 }
